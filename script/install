@@ -29,7 +29,7 @@ success () {
 
 link_file () {
   local src=$1 dst=$2
-  local overwrite=true backup= skip=
+  local overwrite= backup= skip=
   local action=
 
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
@@ -41,7 +41,7 @@ link_file () {
       then
         skip=true;
       else
-        user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
+        user "file already exists: $dst ($(basename "$src")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
         case "$action" in
@@ -94,8 +94,14 @@ link_file () {
 
 install_dotfiles () {
   info "installing dotfiles"
-  link_file "bash_profile" "$HOME/.bash_profile"
-  link_file "vimrc" "$HOME/.vimrc"
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  for src in $(find "$DOTFILES_HOME"/* -maxdepth 2 -name '*')
+  do
+    dst="$HOME/.$(basename "${src}")"
+    link_file "$src" "$dst"
+  done
 }
 
 install_dotfiles

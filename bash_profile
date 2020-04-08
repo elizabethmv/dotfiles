@@ -26,17 +26,18 @@ export PATH="$NODENV_ROOT/versions/$NODENV_VERSION/bin:$PATH"
 export PATH="$HOME/.exenv/bin:$PATH"
 eval "$(exenv init -)"
 
-# 
+# save shell search history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-verbose_sourcer() {
+# source secrets file
+sourcer() {
   if [[ -r "$1" ]] && [[ -f "$1" ]]; then
     source "$1"
   else
-    echo "¯\_(ツ)_/¯"
+    echo "error sourcing secrets file"
   fi
 }
 
-export -f verbose_sourcer
+export -f sourcer
 
-verbose_sourcer ~/.dotfiles/personal
+sourcer ~/.dotfiles/secrets

@@ -1,1 +1,3 @@
-personal
+# create a secrets file for sensitive or job specific data
+# you should not commit them into version control.
+secrets
