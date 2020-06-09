@@ -18,14 +18,6 @@ alias sbp="source ~/.bash_profile"
 # open github in browser
 alias github=$'open `git config --get remote.origin.url | awk -F: \'{ print"https://github.com/"$2}\'`'
 
-# version management
-export NODENV_VERSION=12.13.1
-export NODENV_ROOT=~/.nodenv
-export PATH="$NODENV_ROOT/versions/$NODENV_VERSION/bin:$PATH"
-
-export PATH="$HOME/.exenv/bin:$PATH"
-eval "$(exenv init -)"
-
 # save shell search history
 export ERL_AFLAGS="-kernel shell_history enabled"
 

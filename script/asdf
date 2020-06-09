@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# asdf-erlang prereq
+brew install autoconf openssl wxmac
+
+# asdf-elixir prereq
+brew install unzip
+
+# asdf-nodejs prereq
+brew install coreutils gpg
+
+# clone repo and checkout the latest branch
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+
+# add to bash profile
+echo -e '\n# version management' >> ~/.bash_profile
+echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bash_profile
+echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bash_profile
+source ~/.bash_profile
+
+# add plugins
+asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin-add terraform https://github.com/Banno/asdf-hashicorp.git
+asdf plugin-add python https://github.com/danhper/asdf-python.git
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+
+echo "installed asdf version management"
