@@ -1,0 +1,25 @@
+[user]
+  name = Liz Martinez
+  email = 40329316+elizabethmv@users.noreply.github.com
+
+[github]
+  user = elizabethmv
+
+[core]
+  editor = code --wait
+
+[alias]
+  co = checkout
+  cob = checkout -b
+  st = status
+  br = branch
+  ap = add -p
+  lg = log --pretty=oneline -n 32 --graph --abbrev-commit
+
+[color]
+  ui = auto
+  
+[color "status"]
+  added = green
+	changed = yellow
+  untracked = red
