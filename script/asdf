@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# https://asdf-vm.com/#/core-manage-asdf-vm?id=install-asdf-vm
+
 # asdf-erlang prereq
 brew install autoconf openssl wxmac
 
@@ -9,7 +11,7 @@ brew install unzip
 # asdf-nodejs prereq
 brew install coreutils gpg
 
-# clone repo and checkout the latest branch
+# install by cloning repo and checking out the latest branch
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
 git checkout "$(git describe --abbrev=0 --tags)"
