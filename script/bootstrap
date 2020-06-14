@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -e
+echo ''
+
+# create projects directory at the root
+mkdir -p "${HOME}/Projects"
+
+DOTFILES_ROOT="${HOME}/.dotfiles"
+DOTFILES_REPO="git@github.com:elizabethmv/dotfiles.git"
+
+if [[ ! -d ${DOTFILES_ROOT} ]]; then
+  git clone ${DOTFILES_REPO} ${DOTFILES_ROOT}
+fi
+
+cd ${DOTFILES_ROOT}
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+info "running brew script"
+script/brew
+success "successfully set up homebrew"
+
+info "running install script"
+script/install
+success "successfully linked dotfiles"
+
+info "running asdf script"
+script/asdf
+success "successfully set up asdf verison management"
+
+echo ''
+success "successfully bootstrapped"
