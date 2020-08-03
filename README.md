@@ -25,3 +25,6 @@ bash -c "$(curl -fsSL raw.github.com/elizabethmv/dotfiles/master/script/bootstra
 cd .dotfiles/
 script/install
 ```
+
+## sync vs code settings
+After installing vs code (casked in the bootstrap script), download the [settings sync extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync). Download settings with `Shift + Option + D` and selecting the gist.
