@@ -13,12 +13,8 @@ brew upgrade
 
 # install useful binaries
 brew install git
+brew install node
 brew install erlang
-brew install postgresql
-
-# install deployment tools
-brew install awscli
-brew install heroku
 
 # casks
 brew cask install spectacle 
