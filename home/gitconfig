@@ -11,7 +11,7 @@
 [alias]
   co = checkout
   cob = checkout -b
-  st = status
+  st = status -s
   br = branch
   ap = add -p
   lg = log --pretty=oneline -n 32 --graph --abbrev-commit
