@@ -1,9 +1,7 @@
-[user]
-  name = Liz Martinez
-  email = 40329316+elizabethmv@users.noreply.github.com
-
+[includeIf "gitdir:~/projects/"]
+    path = .gitconfig_personal
 [includeIf "gitdir:~/projects/work/"]
-    path = ~/.gitconfig_work
+    path = .gitconfig_work
 
 [github]
   user = elizabethmv
@@ -24,5 +22,5 @@
   
 [color "status"]
   added = green
-	changed = yellow
+  changed = yellow
   untracked = red
