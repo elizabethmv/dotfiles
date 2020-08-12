@@ -2,6 +2,9 @@
   name = Liz Martinez
   email = 40329316+elizabethmv@users.noreply.github.com
 
+[includeIf "gitdir:~/projects/work/"]
+    path = ~/.gitconfig_work
+
 [github]
   user = elizabethmv
 
